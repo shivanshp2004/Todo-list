@@ -5,7 +5,7 @@ const TaskInput = () => {
   const context = useContext(Context);
   useEffect(() => {
     axios.post("http://localhost:3000/", { task: context.task });
-  }, [context.task]);
+  }, [context.task,context.setTask]);
   const enterToSubmit = (e) => {
     const submit = document.getElementById("submit");
     if (submit && e.key === "Enter") submit.click();
@@ -26,11 +26,10 @@ const TaskInput = () => {
       />
       <button
         id="submit"
-        className="ml-[10px] border-2 border-black p-2 text-[1.4rem] h-[37px] w-[7%] font-bold font-serif text-black flex justify-center items-center bg-[#e0e1dd] hover:bg-[#a3b18a] hover:text-black rounded-xl max-sm:text-[1rem] max-sm:ml-[0px] max-sm:h-[20%] max-sm:w-[20%]"
+        className="ml-[10px] border-2 border-black p-2 text-[1.4rem] h-[37px] w-[7%] font-bold font-serif text-black flex justify-center items-center bg-[#e0e1dd] hover:bg-[#a3b18a] hover:text-black rounded-xl max-sm:text-[1rem] max-sm:mt-[10px] max-sm:ml-[60%] max-sm:h-[20%] max-sm:w-[20%]"
         onClick={() => {
           context.setTask(context.input);
         }}
-        onKeyDown={(key) => {}}
       >
         Submit
       </button>
